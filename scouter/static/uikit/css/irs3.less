@@ -1,0 +1,141 @@
+@import "../src/less/uikit.theme.less";
+
+/* color scheme: #3C2E59 #7158A6 #8764A8 #CDA545 #DBC687 */
+
+/* INSTRUCTIONS
+
+1. Install node.js (https://nodejs.org/en/)
+2. Install yarn (https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)
+3. Create folder for projects (custom)
+4. From terminal, go to the project folder you just created and type "yarn init"
+5. Answer questions to create the package.json file
+6. "yarn add uikit"
+7. "cd node_modules"
+8. "cd uikit"
+9. "yarn install"
+10. Create a custom folder inside uikit
+11. Create an irs3.less file inside the custom folder
+12. "@import '../src/less/uikit.theme.less'"
+13. Save a copy of irs3.less somewhere else
+14. "yarn compile"
+15. (you should see uikit.irs3.min.css in /dist folder
+16. Create a shell script (automatically compiles & copies irs3.less to scouting2022):
+
+cp irs3.less .\node_modules\uikit\custom
+yarn --cwd .\node_modules\uikit compile
+cp .\node_modules\uikit\dist\css\uikit.irs3.min.css ..\scouting2022\bleachers\static\uikit\css
+cp .\node_modules\uikit\dist\css\uikit.irs3.css ..\scouting2022\bleachers\static\uikit\css
+cp irs3.less ..\scouting2022\bleachers\static\uikit\css
+
+*/
+
+@global-background: #8764A8;
+
+// tab underline
+@global-primary-background:rgb(243, 210, 157);
+
+// main font color, tab hover
+@global-color: rgb(243, 210, 157);
+
+// headings (h1, h2)
+@global-emphasis-color: #20103f;
+
+// base tab font color
+@global-muted-color: rgb(243, 210, 157);
+
+// stars rating size
+div.stars {
+    font-size: 30px;
+}
+
+// italic text for alliance/match/team (span in index.html)
+span {
+    font-style: italic;
+}
+
+// spinner css
+table.spinnertable {
+    border: 1px solid;
+    display: inline-block;
+}
+input.spinner {
+    text-align: center;
+    font-size: 20px;
+    width: 60px;
+    border-style: none;
+}
+label.spinnerlabel {
+    font-size: 25px;
+}
+
+
+// nav.html
+input.nav {
+    background-color: #f9b234;
+    border: 0;
+    line-height: 2.5;
+    border-radius: 5px;
+    padding: 0 30px;
+    font-size: 30px;
+    text-align: center;
+    color: black;
+    margin: 10px;
+}
+
+form.nav {
+    display: inline;
+}
+
+.nav.blue {
+    background-color: skyblue;
+}
+.nav.red {
+    background-color: orange;
+}
+.nav.cmd {
+    background-color: rgb(243, 210, 157)
+}
+
+
+// command.html
+
+td.cell {
+    border: 2px solid #20103f;
+    word-spacing: 20px;
+    line-height: 2.5;
+    padding: 0 20px;
+    text-align: center;
+}
+
+td.cell:nth-child(3),
+td.cell:nth-child(4),
+td.cell:nth-child(5) {
+    background-color: skyblue;
+    color: #20103f;
+}
+
+td.cell:nth-child(6),
+td.cell:nth-child(7),
+td.cell:nth-child(8) {
+    background-color: orange;
+    color: #20103f;
+}
+
+td.cell:nth-child(1):hover {
+    background-color: #20103f;
+    color: #f9b234;
+}
+
+div.fixed {
+    position: sticky;
+    top: 0;
+    background-color: #8764A8;
+    margin: auto;
+    padding: 10px 20px;
+}
+#currentmatch {
+    margin: 0px;
+}
+td.cell.highlightcell {
+    background-color: rgb(243, 210, 157);
+}
