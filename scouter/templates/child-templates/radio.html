@@ -1,0 +1,10 @@
+{% macro radio(phase, task, options, label) -%}
+    {% set radio_id = phase ~ ';' ~ task %}
+    {% set options_list = options.split(';') %}
+    {% set ns = namespace(option_num = 0) %}
+    <p class="radio_label" id="{{task}}_label"><b>{{label}}</b></p>
+    {% for option in options_list %}
+        <span class="nowrap"><input type="radio" class="radio" class="{{option_num}}" id="{{radio_id}};{{options_list[ns.option_num]}}" value="{{options_list[ns.option_num]}}" name="{{radio_id}}" checked><label for="{{radio_id}};{{options_list[ns.option_num]}}">{{options_list[ns.option_num]}}</label></span>
+        {% set ns.option_num = ns.option_num+1 %}
+    {% endfor %}
+{%- endmacro %}

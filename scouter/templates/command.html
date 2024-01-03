@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command</title>
+
+    <script src="/static/socket.io/socket.io.min.js"></script>
+
+    <link rel="stylesheet" href="/static/uikit/css/uikit.irs3.min.css">
+
+    <script src="/static/js/fetch.js" defer></script>
+    <script src="/static/js/socket.js" defer></script>
+    <script src="/static/js/command.js" defer></script>
+
+    <style>
+        .tabletfinish {
+            border: 2px solid rgb(243, 210, 157);
+            border-radius: 20px;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            margin-left: 5px;
+            background-color: none;
+        }
+        .ready {
+            background-color: rgb(243, 210, 157);
+        }
+        #currentmatch {
+            display: inline;
+            margin-right: 450px;
+        }
+        #blue_connect {
+            background-color: skyblue;
+            color: #20103f;
+        }
+        #red_connect {
+            background-color: orange;
+            color: #20103f;
+        }
+
+        .socketpanel {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="fixed">
+        <span class="buttonpanel"><button id="reset">Update & Reset</button> <form class="nav" action="/"><input type="submit" class="back" value="BACK"/></form></span>
+
+        <div class="socketpanel">socket connections: <span id="blue_connect"></span> <span id="red_connect"></span> <span id="other_connect"></span></div>
+
+        <h1 id="currentmatch">{{currentmatch}}</h1> <span>finished tablets</span> <span class="tabletfinish blue-1"></span><span class="tabletfinish blue-2"></span><span class="tabletfinish blue-3"></span><span class="tabletfinish red-1"></span><span class="tabletfinish red-2"></span><span class="tabletfinish red-3"></span>
+    </div>
+
+    <div id="matches"></div>
+</body>
+</html>

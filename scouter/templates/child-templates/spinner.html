@@ -1,0 +1,29 @@
+{% macro spinner(phase, task, label, label2, showMisses) -%}
+    {% set spinner_id = phase ~ ';' ~ task %}
+        <div class="spinnerAll" id="spinner">
+            <table class="spinnertable">
+                <tr>
+                    <td><label for="{{spinner_id}}" class="spinnerlabel">{{label}}:</label></td>
+                    <td><input type="text" id="{{spinner_id}};1" name="{{spinner_id}}" value=0 readonly class="spinner1 spinner"></td>
+                    <td>
+                        <button type="button" id="{{spinner_id}};up;{{showMisses}};1" class="spinnerbutton"><span uk-icon="icon: triangle-up"></span></button>
+                        <br>
+                        <button type="button" id="{{spinner_id}};down;{{showMisses}};1" class="spinnerbutton"><span uk-icon="icon: triangle-down"></span></button>
+                    </td>
+                </tr>
+            </table>
+            {% if showMisses == 'true' %}
+            <table class="spinnertable">
+                <tr>
+                    <td><label for="{{spinner_id}}" class="spinnerlabel">{{label2}}:</label></td>
+                    <td><input type="text" id="{{spinner_id}};2" name="{{spinner_id}}" value=0 readonly class="spinner2 spinner"></td>
+                    <td>
+                        <button type="button" id="{{spinner_id}};up;{{showMisses}};2" class="spinnerbutton"><span uk-icon="icon: triangle-up"></span></button>
+                        <br>
+                        <button type="button" id="{{spinner_id}};down;{{showMisses}};2" class="spinnerbutton"><span uk-icon="icon: triangle-down"></span></button>
+                    </td>
+                </tr>
+            </table>
+            {% endif %}
+    </div>
+{%- endmacro %}

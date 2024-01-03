@@ -1,0 +1,4 @@
+{% macro checkbox(phase, task, label) -%}
+    {% set checkbox_id = phase ~ ';' ~ task %}
+    <input type="checkbox" class="checkbox" id="{{checkbox_id}}"><label for="{{checkbox_id}}">{{label}}</label></input>
+{%- endmacro %}

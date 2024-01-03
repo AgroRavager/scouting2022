@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scouting</title>
+
+    <script src="/static/js/fetch.js" defer></script>
+    <script src="/static/js/retrievedata.js" defer></script>
+
+    <script src="/static/js/socket.js" defer></script>
+    
+    <script src="/static/js/checkbox.js/" defer></script>
+    <script src="/static/js/spinner.js" defer></script>
+    <script src="/static/js/radio.js" defer></script>
+    <script src="/static/js/rating.js" defer></script>
+
+    <script src="/static/js/reset.js" defer></script>
+
+    <script src="/static/js/checkoutdata.js" defer></script>
+
+    <link rel="stylesheet" href="/static/uikit/css/uikit.irs3.min.css">
+    <script src="/static/uikit/js/uikit.min.js"></script>
+    <script src="/static/uikit/js/uikit-icons.min.js"></script>
+    <script src="/static/socket.io/socket.io.min.js"></script>
+
+    <style>
+      .ready {
+            background-color: rgb(243, 210, 157);
+      }
+      .waiting {
+          background-color: none;
+      }
+      .tabletfinish {
+          border: 2px solid rgb(243, 210, 157);
+          border-radius: 50px;
+          width: 20px;
+          height: 20px;
+          display: inline-block;
+          margin-left: 5px;
+          vertical-align: middle;
+          margin-left: 25px;
+          margin-right: 5px;
+          background-color: none;
+      }
+
+      .buttonpanel > button,
+      .buttonpanel > form > input {
+        height: 30px;
+        border-radius: 5px;
+        border: none;
+        margin-left: 5px;
+      }
+
+      .buttonpanel > button:nth-child(1) {
+        margin-left: 0px;
+      }
+
+      .nowrap {
+        white-space: nowrap;
+        font-style: normal;
+      }
+
+      .spinnerAll {
+        display: inline;
+      }
+    </style>
+</head>
+<body>
+    <div class="matchinfo"><h1>Match: <span id="current-match">{{currentmatch}}</span> Station: <span id={{alliance}}-{{station_number}} class="station">{{ alliance }} {{ station_number }}</span> Team: <span id="team">{{team}}</span> <span id="teamname"> </span></h1></div>
+
+    <span class="buttonpanel"><button id="checkdata">Finish & Check-in Data</button> <button id="buttontest">Get data from database</button> <button id="update" hidden>Update match and team</button> <button id="reset" hidden>Reset data</button> <form class="nav" action="/"><input type="submit" class="back" value="BACK"/></form></span>
+    
+    <span id="testing"></span> <span class="tabletfinish {{alliance}}-{{station_number}}"></span>
+    <!-- <span class="finishtext">waiting for finish . . .</span> -->
+
+    <div id="test"></div>
+
+    <ul uk-tab>
+        <li><a href="#">Auto</a></li>
+        <li><a href="#">Teleop</a></li>
+        <li><a href="#">Endgame</a></li>
+      </ul>
+
+    <div class="uk-switcher">
+        <div>
+            {% include "child-templates/auto.html" %}
+          </div>
+        
+        <div>
+            {% include "child-templates/teleop.html" %}
+          </div>
+        
+        <div>
+            {% include "child-templates/endgame.html" %}
+          </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% import 'child-templates/spinner.html' as macro %}
+{% import 'child-templates/radio.html' as radio %}
+{% import 'child-templates/checkbox.html' as checkbox %}
+
+<div class="uk-container">
+<div class="uk-grid-divider uk-grid-large" uk-grid>
+    <div class="uk-width-1-2">
+        <div><h3>Hangar</h3></div>
+        <div class="uk-margin-left"><p>{{ macro.spinner('endgame', 'hangar_level_start', 'Start Rung', 'none', 'false')}}</p></div>
+        <div class="uk-margin-left"><p>{{ macro.spinner('endgame', 'hangar_level_end', 'End Rung', 'none', 'false')}}</p></div>
+    </div>
+    <div class="uk-width-1-2">
+        <div class="uk-margin-left"><p>{{ macro.spinner('endgame', 'penalty_count', 'Penalties', 'none', 'false')}}</p></div>
+        
+        <div class="uk-margin-left"><p>{{ checkbox.checkbox('endgame', 'temp_disabled', 'Temporary Disabled')}}</p></div>
+        <div class="uk-margin-left"><p>{{ checkbox.checkbox('endgame', 'disabled', 'Disabled')}}</p></div>
+        <div class="uk-margin-left"><p>{{ checkbox.checkbox('endgame', 'fall_over', 'Fall Over')}}</p></div>
+    </div>
+</div>
+</div>

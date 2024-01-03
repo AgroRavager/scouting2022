@@ -1,0 +1,7 @@
+{% macro rating(phase, task, label) -%}
+    {% set rating_id = phase ~ ';' ~ task %}
+
+    <p class="rating_label" id="{{task}}_label"><b>{{label}}</b></p>
+    <div class="stars" id="{{rating_id}}">☆☆☆</div>
+
+{%- endmacro %}
